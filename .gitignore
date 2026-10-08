@@ -48,3 +48,7 @@ dev.db*
 .agents/
 .claude/
 .windsurf/
+
+# cloudflare & open-next build artifacts
+.open-next/
+.wrangler/
