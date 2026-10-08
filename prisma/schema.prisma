@@ -1,0 +1,98 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model Task {
+  id           String    @id @default(cuid())
+  title        String
+  description  String?
+  domain       String    // work/health/chores/personal/learning
+  priority     String    // urgent-important/important/urgent/low
+  status       String    @default("backlog") // backlog/planned/in_progress/blocked/done/archived
+  estimatedMin Int?
+  actualMin    Int?
+  energyLevel  String    @default("medium")
+  deadline     DateTime?
+  scheduledDate DateTime?
+  scheduledTime String?
+  recurrence   String?
+  parentId     String?
+  tags         String?
+  notes        String?
+  sortOrder    Int       @default(0)
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+  completedAt  DateTime?
+
+  parent       Task?     @relation("TaskSubtasks", fields: [parentId], references: [id])
+  subtasks     Task[]    @relation("TaskSubtasks")
+}
+
+model TimeBlock {
+  id        String   @id @default(cuid())
+  date      DateTime
+  startTime String
+  endTime   String
+  taskId    String?
+  type      String   // task/break/meal/exercise/free/routine
+  label     String
+  isFixed   Boolean  @default(false)
+  domain    String?
+  createdAt DateTime @default(now())
+}
+
+model DailyPlan {
+  id             String   @id @default(cuid())
+  date           DateTime @unique
+  timeBlocksJson String   // JSON
+  aiGenerated    Boolean  @default(false)
+  notes          String?
+  rating         Int?
+  reflection     String?
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+}
+
+model Habit {
+  id         String   @id @default(cuid())
+  name       String
+  domain     String
+  frequency  String
+  targetTime String?
+  streak     Int      @default(0)
+  bestStreak Int      @default(0)
+  isActive   Boolean  @default(true)
+  createdAt  DateTime @default(now())
+}
+
+model HabitLog {
+  id        String   @id @default(cuid())
+  habitId   String
+  date      DateTime
+  completed Boolean  @default(true)
+  notes     String?
+}
+
+model UserPreferences {
+  id                 String   @id @default("default")
+  wakeTime           String   @default("06:30")
+  sleepTime          String   @default("22:00")
+  peakHoursStart     String   @default("09:00")
+  peakHoursEnd       String   @default("12:00")
+  workStartTime      String   @default("09:00")
+  workEndTime        String   @default("17:30")
+  breakDurationMin   Int      @default(15)
+  lunchTime          String   @default("13:00")
+  lunchDurationMin   Int      @default(60)
+  timezone           String   @default("Asia/Kolkata")
+  telegramBotToken   String?
+  telegramChatId     String?
+  openrouterApiKey   String?
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+}

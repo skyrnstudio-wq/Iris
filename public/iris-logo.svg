@@ -1,0 +1,156 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient: Obsidian Slate -->
+    <linearGradient id="iris_bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#18181b"/>
+      <stop offset="50%" stop-color="#0f0f12"/>
+      <stop offset="100%" stop-color="#09090b"/>
+    </linearGradient>
+
+    <!-- Squircle Border Subtle Chamfer -->
+    <linearGradient id="iris_squircleBorder" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3f3f46" stop-opacity="0.95"/>
+      <stop offset="50%" stop-color="#27272a" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#18181b" stop-opacity="0.85"/>
+    </linearGradient>
+
+    <!-- Emerald Luminous Core -->
+    <linearGradient id="iris_emeraldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#34d399"/>
+      <stop offset="40%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#047857"/>
+    </linearGradient>
+
+    <!-- Radial Emerald Halo -->
+    <radialGradient id="iris_emeraldHalo" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#10b981" stop-opacity="0.55"/>
+      <stop offset="55%" stop-color="#10b981" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#10b981" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Platinum Blade Gradients -->
+    <linearGradient id="iris_blade0" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#cbd5e1"/>
+    </linearGradient>
+    <linearGradient id="iris_blade1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f8fafc"/>
+      <stop offset="100%" stop-color="#94a3b8"/>
+    </linearGradient>
+    <linearGradient id="iris_blade2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f1f5f9"/>
+      <stop offset="100%" stop-color="#64748b"/>
+    </linearGradient>
+
+    <filter id="iris_coreGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <!-- iOS-style Squircle Canvas -->
+  <rect width="512" height="512" rx="116" fill="url(#iris_bg)"/>
+  <rect width="506" height="506" x="3" y="3" rx="113" fill="none" stroke="url(#iris_squircleBorder)" stroke-width="2.5"/>
+
+  <!-- Halo aura -->
+  <circle cx="256" cy="256" r="215" fill="url(#iris_emeraldHalo)"/>
+
+  <!-- Outer Dial Calibration & Routine Track -->
+  <circle cx="256" cy="256" r="226" fill="none" stroke="#27272a" stroke-width="1.5" stroke-dasharray="3 9"/>
+
+  <g id="irisApertureGroup" transform="translate(256, 256)">
+    <!-- Housing Rim -->
+    <circle cx="0" cy="0" r="201.0" fill="#0b0b0d" stroke="#27272a" stroke-width="2.5"/>
+    <circle cx="0" cy="0" r="197.0" fill="none" stroke="#18181b" stroke-width="1.5"/>
+    <!-- Blade 1 -->
+    <path d="M 62.00,184.88 
+             L 62.00,0.00 
+             A 62.0 62.0 0 0 1 31.00,53.69 
+             L -129.11,146.13 
+             A 195.0 195.0 0 0 0 62.00,184.88 
+             Z"
+          fill="url(#iris_blade0)"
+          stroke="#09090b"
+          stroke-width="3"
+          stroke-linejoin="round"/>
+    <line x1="62.00" y1="184.88" x2="62.00" y2="0.00" stroke="#10b981" stroke-width="2" opacity="0.9"/>
+    <!-- Blade 2 -->
+    <path d="M -129.11,146.13 
+             L 31.00,53.69 
+             A 62.0 62.0 0 0 1 -31.00,53.69 
+             L -191.11,-38.75 
+             A 195.0 195.0 0 0 0 -129.11,146.13 
+             Z"
+          fill="url(#iris_blade1)"
+          stroke="#09090b"
+          stroke-width="3"
+          stroke-linejoin="round"/>
+    <line x1="-129.11" y1="146.13" x2="31.00" y2="53.69" stroke="#10b981" stroke-width="2" opacity="0.9"/>
+    <!-- Blade 3 -->
+    <path d="M -191.11,-38.75 
+             L -31.00,53.69 
+             A 62.0 62.0 0 0 1 -62.00,0.00 
+             L -62.00,-184.88 
+             A 195.0 195.0 0 0 0 -191.11,-38.75 
+             Z"
+          fill="url(#iris_blade2)"
+          stroke="#09090b"
+          stroke-width="3"
+          stroke-linejoin="round"/>
+    <line x1="-191.11" y1="-38.75" x2="-31.00" y2="53.69" stroke="#10b981" stroke-width="2" opacity="0.9"/>
+    <!-- Blade 4 -->
+    <path d="M -62.00,-184.88 
+             L -62.00,0.00 
+             A 62.0 62.0 0 0 1 -31.00,-53.69 
+             L 129.11,-146.13 
+             A 195.0 195.0 0 0 0 -62.00,-184.88 
+             Z"
+          fill="url(#iris_blade0)"
+          stroke="#09090b"
+          stroke-width="3"
+          stroke-linejoin="round"/>
+    <line x1="-62.00" y1="-184.88" x2="-62.00" y2="0.00" stroke="#10b981" stroke-width="2" opacity="0.9"/>
+    <!-- Blade 5 -->
+    <path d="M 129.11,-146.13 
+             L -31.00,-53.69 
+             A 62.0 62.0 0 0 1 31.00,-53.69 
+             L 191.11,38.75 
+             A 195.0 195.0 0 0 0 129.11,-146.13 
+             Z"
+          fill="url(#iris_blade1)"
+          stroke="#09090b"
+          stroke-width="3"
+          stroke-linejoin="round"/>
+    <line x1="129.11" y1="-146.13" x2="-31.00" y2="-53.69" stroke="#10b981" stroke-width="2" opacity="0.9"/>
+    <!-- Blade 6 -->
+    <path d="M 191.11,38.75 
+             L 31.00,-53.69 
+             A 62.0 62.0 0 0 1 62.00,-0.00 
+             L 62.00,184.88 
+             A 195.0 195.0 0 0 0 191.11,38.75 
+             Z"
+          fill="url(#iris_blade2)"
+          stroke="#09090b"
+          stroke-width="3"
+          stroke-linejoin="round"/>
+    <line x1="191.11" y1="38.75" x2="31.00" y2="-53.69" stroke="#10b981" stroke-width="2" opacity="0.9"/>
+
+    <!-- Central Iris Lens Bezel -->
+    <circle cx="0" cy="0" r="62.0" fill="#09090b" stroke="#18181b" stroke-width="2"/>
+    
+    <!-- Luminous Emerald Iris Pupil -->
+    <circle cx="0" cy="0" r="52.0" fill="url(#iris_emeraldGrad)" filter="url(#iris_coreGlow)"/>
+    <circle cx="0" cy="0" r="52.0" fill="none" stroke="#a7f3d0" stroke-width="2" opacity="0.85"/>
+
+    <!-- Inner Pupil Core -->
+    <circle cx="0" cy="0" r="24" fill="#064e3b" opacity="0.95"/>
+    
+    <!-- Radiant 4-point Focus Star / Spark of Intent -->
+    <path d="M 0,-30 Q 0,0 30,0 Q 0,0 0,30 Q 0,0 -30,0 Q 0,0 0,-30 Z" 
+          fill="#ffffff" 
+          opacity="0.98"/>
+    <circle cx="0" cy="0" r="7" fill="#a7f3d0"/>
+  </g>
+</svg>
